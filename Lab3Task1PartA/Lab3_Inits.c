@@ -7,6 +7,7 @@
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
+#include "Lab3_Task1a.h"
 
 int PLL_Init(enum frequency freq) {
     // Do NOT modify this function.
@@ -58,45 +59,52 @@ int PLL_Init(enum frequency freq) {
 void LED_Init(void) {
   // STEP 1: Initialize the 4 on board LEDs by initializing the corresponding
   // GPIO pins.
-
-  // YOUR CODE HERE
+  // Set LED pins as outputs
+  GPIODIR_F |= 0x11;  // Set PF0 (LED4) and PF4 (LED3) as outputs
+  GPIODIR_N |= 0x03;  // Set PN0 (LED2) and PN1 (LED1) as outputs
+  // Set LED pins as digital pins
+  GPIODEN_F |= 0x11;  // Enable digital for PF0 and PF4
+  GPIODEN_N |= 0x03;  // Enable digital for PN0 and PN1
 }
 
 void ADCReadPot_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
-
+  RCGCADC |= 0x1; // Enable ADC0 clock
   // 2.2: Delay for RCGCADC (Refer to page 1073)
-
+  volatile unsigned short delay = 0;
+  delay++, delay++;
   // 2.3: Power up the PLL (if not already)
   PLLFREQ0 |= 0x00800000; // we did this for you
   // 2.4: Wait for the PLL to lock
   while (PLLSTAT != 0x1); // we did this for you
   // 2.5: Configure ADCCC to use the clock source defined by ALTCLKCFG
-
+  ADCCC = 0x0; // Set ADC clock to use system clock (60 MHz)
   // 2.6: Enable clock to the appropriate GPIO Modules (Hint: Table 15-1)
-
+  RCGCGPIO |= 0x1020; // Enable clock for Port F (bit 5) and Port N (bit 12)
+  RCGCGPIO_E |= 0x1; // Enable clock for Port E (bit 0)
   // 2.7: Delay for RCGCGPIO
-
+  delay++, delay++;
   // 2.8: Set the GPIOAFSEL bits for the ADC input pins
-
+  GPIOAFSEL_E |= 0x1;
   // 2.9: Clear the GPIODEN bits for the ADC input pins
-
+  GPIODEN_E &= ~0x1; // Disable digital function for PE0 (AIN0)
   // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
-
+  GPIOAMSEL_E |= 0x1; // Enable analog function for PE0 (AIN0)
   // 2.11: Disable sample sequencer 3 (SS3)
-
+  ADC0_ACTSS &= ~0x8; // Disable SS3 (bit 3)
   // 2.12: Select timer as the trigger for SS3
-
+  ADC0_EMUX = (ADC0_EMUX & ~0xF000) | (0x5 << 12); // Set bits 15-12 to 0x5 (timer trigger)
   // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
-
+  ADC0_SSMUX3 = 0x0;
   // 2.14: Configure ADCSSCTL3 register
-
+  ADC0_SSCTL3 = 0x6; // sample 0 and 1, end of sequence, no interrupts
   // 2.15: Set the SS3 interrupt mask
-
+  ADC0_IM |= 0x8; // Enable SS3 interrupt (bit 3)
   // 2.16: Set the corresponding bit for ADC0 SS3 in NVIC
-
+  NVIC_EN0 |= (1 << 17); // Enable ADC0 SS3 interrupt in NVIC (bit 17)
   // 2.17: Enable ADC0 SS3
+  ADC0_ACTSS |= 0x8; // Enable SS3
 
 }
 
@@ -105,6 +113,15 @@ void TimerADCTriger_Init(void) {
   // Hint: Refer to section 13.3.7 of the datasheet
 
   // YOUR CODE HERE
+  RCGCTIMER |= 0x1; // enable clock for Timer 0 (GPTM0)
+  while ((RCGCTIMER & 0x1) == 0) {}
+    
+  GPTMCTL = 0x0; // Disable timer A for initialization 
+  GPTMCFG = 0x0; // 32-bit timer configuration
+  GPTMTAMR = 0x2; // set to periodic mode
+  GPTMAILR = 16000000; // Load for 1 Hz
+  GPTMICR = 0x1; // Clear any timeout flag
+  GPTMCTL = 0x1; // Enable timer A
 }
 
 // NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
