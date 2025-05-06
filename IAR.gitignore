@@ -1,18 +1,21 @@
 # IAR Settings  
-**/settings/*.crun  
-**/settings/*.dbgdt  
-**/settings/*.cspy  
-**/settings/*.cspy.*  
-**/settings/*.xcl  
-**/settings/*.dni  
-**/settings/*.wsdt  
-**/settings/*.wspos  
+*.crun  
+*.dbgdt  
+*.cspy  
+*.cspy.*  
+*.xcl  
+*.dni  
+*.wsdt  
+**.wspos  
+
+# IAR workstuff
+*.eww
 
 # IAR Debug Exe  
-**/Exe/*.sim  
+*.sim  
 
 # IAR Debug Obj  
-**/Obj/*.pbd  
-**/Obj/*.pbd.*  
-**/Obj/*.pbi  
-**/Obj/*.pbi.* 
+*.pbd  
+*.pbd.*  
+*.pbi  
+*.pbi.* 
