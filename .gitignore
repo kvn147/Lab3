@@ -28,3 +28,6 @@
 *.map
 *.dep
 *.ewt
+
+Debug
+Settings
