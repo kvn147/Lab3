@@ -21,3 +21,10 @@
 *.pbi.* 
 
 # Other stuff
+*.o
+*.ewp
+*.dnx
+*.out
+*.map
+*.dep
+*.ewt
