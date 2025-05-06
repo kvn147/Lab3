@@ -5,16 +5,18 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\Lab3_Inits.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Lab3_Task1a.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_M.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
             <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3Task1PartA.pbd</file>
             <file>$PROJ_DIR$\Debug\Exe\Lab3Task1PartA.out</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\config\generic_cortex.icf</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$PROJ_DIR$\Debug\List\Lab3Task1PartA.map</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
             <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
             <file>$PROJ_DIR$\Debug\Obj\cstartup_M.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3_Inits.pbi</file>
@@ -33,19 +35,21 @@
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
             <file>$PROJ_DIR$\Debug\Obj\cstartup_M.o</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1290NC.icf</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\Lab3Task1PartA.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 8</file>
+                    <file> 11</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 5 27 19 13 3 10 6 9 7</file>
+                    <file> 31 29 21 15 7 12 9 30 10</file>
                 </tool>
             </inputs>
         </file>
@@ -54,11 +58,15 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
                     <file> 3</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 0</file>
+                    <file> 4</file>
                 </tool>
             </outputs>
         </file>
@@ -67,7 +75,7 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 2 8</file>
+                    <file> 6 11</file>
                 </tool>
             </outputs>
         </file>
@@ -76,11 +84,15 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 27</file>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 2</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 11</file>
+                    <file> 13</file>
                 </tool>
             </outputs>
         </file>
@@ -89,21 +101,25 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 13</file>
+                    <file> 15</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 1</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 17</file>
+                    <file> 19</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 16 14 18 25 26 15 22</file>
+                    <file> 18 16 20 27 28 17 24</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 14 25 18 16 26 15 22</file>
+                    <file> 16 27 20 18 28 17 24</file>
                 </tool>
             </inputs>
         </file>
@@ -112,30 +128,31 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 19</file>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 0</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 12</file>
+                    <file> 14</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 21 16 14 18 25 26 15 22</file>
+                    <file> 23 18 16 20 27 28 17 24</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 25 14 16 18 21 26 15 22</file>
+                    <file> 27 16 18 20 23 28 17 24</file>
                 </tool>
             </inputs>
         </file>
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>ILINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>[REBUILD_ALL]</name>
         </forcedrebuild>
     </configuration>
     <configuration>
