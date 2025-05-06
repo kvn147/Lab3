@@ -9,7 +9,7 @@
 **.wspos  
 
 # IAR workstuff
-*.eww
+**/*.eww
 
 # IAR Debug Exe  
 **.sim  
