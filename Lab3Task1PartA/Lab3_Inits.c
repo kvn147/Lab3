@@ -63,6 +63,7 @@ void LED_Init(void) {
   volatile unsigned short delay = 0;
   delay++, delay++; 
   // Set LED pins as outputs
+  RCGCGPIO |= 0x1020;
   GPIODIR_F |= 0x11;  // Set PF0 (LED4) and PF4 (LED3) as outputs
   GPIODIR_N |= 0x03;  // Set PN0 (LED2) and PN1 (LED1) as outputs
   // Set LED pins as digital pins
