@@ -84,8 +84,8 @@ void ADCReadPot_Init(void) {
   // 2.5: Configure ADCCC to use the clock source defined by ALTCLKCFG
   ADCCC = 0x0; // Set ADC clock to use system clock (60 MHz)
   // 2.6: Enable clock to the appropriate GPIO Modules (Hint: Table 15-1)
-  RCGCGPIO |= 0x1020; // Enable clock for Port F (bit 5) and Port N (bit 12)
-  RCGCGPIO_E |= 0x1; // Enable clock for Port E (bit 0)
+  RCGCGPIO |= (1<<4); // Enable clock for Port E
+  delay++, delay++;
   // 2.7: Delay for RCGCGPIO
   delay++, delay++;
   // 2.8: Set the GPIOAFSEL bits for the ADC input pins
