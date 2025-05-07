@@ -89,11 +89,11 @@ void ADCReadPot_Init(void) {
   // 2.7: Delay for RCGCGPIO
   delay++, delay++;
   // 2.8: Set the GPIOAFSEL bits for the ADC input pins
-  GPIOAFSEL_E |= 0x1;
+  GPIOAFSEL_E |= (1<<3);
   // 2.9: Clear the GPIODEN bits for the ADC input pins
-  GPIODEN_E &= ~0x1; // Disable digital function for PE0 (AIN0)
+  GPIODEN_E &= ~(1<<3); // Disable digital function for PE0 (AIN0)
   // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
-  GPIOAMSEL_E |= 0x1; // Enable analog function for PE0 (AIN0)
+  GPIOAMSEL_E |= (1<<3); // Enable analog function for PE0 (AIN0)
   // 2.11: Disable sample sequencer 3 (SS3)
   ADC0_ACTSS &= ~0x8; // Disable SS3 (bit 3)
   // 2.12: Select timer as the trigger for SS3
