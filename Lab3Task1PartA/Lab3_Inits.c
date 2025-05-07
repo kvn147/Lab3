@@ -59,6 +59,9 @@ int PLL_Init(enum frequency freq) {
 void LED_Init(void) {
   // STEP 1: Initialize the 4 on board LEDs by initializing the corresponding
   // GPIO pins.
+  RCGCGPIO |= (1<<5) | (1<<12); // Enable clock for LEDs
+  volatile unsigned short delay = 0;
+  delay++, delay++; 
   // Set LED pins as outputs
   GPIODIR_F |= 0x11;  // Set PF0 (LED4) and PF4 (LED3) as outputs
   GPIODIR_N |= 0x03;  // Set PN0 (LED2) and PN1 (LED1) as outputs
