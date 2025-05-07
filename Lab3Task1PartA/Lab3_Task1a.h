@@ -32,6 +32,10 @@
 #define GPTMAILR (*((volatile uint32_t *)0x40030028)) // Interval load
 #define GPTMRIS (*((volatile uint32_t *)0x4003001C)) // Monitor flag
 #define GPTMICR (*((volatile uint32_t *)0x40030024)) // Clear flag
+#define GPTMIMR (*((volatile uint32_t *)0x40030018)) // Interupt mask
+#define GPTMCC  (*((volatile uint32_t *)0x40030FC8)) // 
+#define GPTMADCEV (*((volatile uint32_t *)0x40030070)) 
+
 
 #define NVIC_EN0 (*((volatile uint32_t *)0xE000E100)) // Enable interrupt in NVIC
 
