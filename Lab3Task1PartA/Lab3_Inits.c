@@ -124,7 +124,7 @@ void TimerADCTriger_Init(void) {
   GPTMTAMR |= 0x12; // set to periodic mode and count down
   GPTMAILR = 16000000; // Load for 1 Hz
   GPTMICR |= 0x1; // Clear any timeout flag
-  GPTMIMR |= 0x1; 
+  GPTMIMR |= 0x1; // GPTM interupt mask
   GPTMCC |= 0x1; // Hooks up to PLL
   GPTMCTL |= 0x1; // Enable timer A
   GPTMADCEV |= 0x1; 
