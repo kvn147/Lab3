@@ -24,6 +24,7 @@ int main(void) {
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
   float resistance;
   while(1) {
+      GPTMICR = 0x1; // Clear any timeout flag
     // STEP 5: Change the pattern of LEDs based on the resistance.
     // 5.1: Convert ADC_value to resistance in kilo-ohm
     resistance = ADC_value / 4095.0 * 10.0; // Convert ADC value to voltage
@@ -31,7 +32,6 @@ int main(void) {
     // clear LEDs
     GPIODATA_N &= ~0x03; // Turn off LED1 and LED2
     GPIODATA_F &= ~0x11; // Turn off LED3 and LED4
-
     // 5.2: Change the pattern of LEDs based on the resistance
     if (resistance < 2.5) {
       GPIODATA_N |= 0x02; // LED1 on (PN1)
@@ -51,7 +51,7 @@ int main(void) {
 void ADC0SS3_Handler(void) {
   // STEP 4: Implement the ADC ISR.
   // 4.1: Clear the ADC0 interrupt flag
-  ADC0_ISC |= 0x8;
+  ADC0_ISC |= 0x1;
   // 4.2: Save the ADC value to global variable ADC_value
   ADC_value = ADC0_SSFIFO3;
 }
