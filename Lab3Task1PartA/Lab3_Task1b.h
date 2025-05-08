@@ -62,12 +62,10 @@
 #define ADC0_SSFIFO3 (*((volatile uint32_t *)0x400380A8))
 #define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
 
-// Set up data for button and switch input at L
-#define RCGCGPIO (*((volatile uint32_t *)0x400FE608)) 
-#define GPIOAMSEL_L (*((volatile uint32_t *)0x40062528)) 
-#define GPIODIR_L (*((volatile uint32_t *)0x40062400))
-#define GPIODEN_L (*((volatile uint32_t *)0x4006251C))
-#define GPIOAFSEL_L (*((volatile uint32_t *)0x40062420)) 
-#define GPIODATA_L (*((volatile uint32_t *)0x400623FC)) 
+// Set up data for Button J
+#define GPIOPUR_J (*((volatile uint32_t *)0x40060510))
+#define GPIODIR_J (*((volatile uint32_t *)0x40060400))
+#define GPIODEN_J (*((volatile uint32_t *)0x4006051C))
+#define GPIODATA_J (*((volatile uint32_t *)0x4006000C))
 
 #endif // _Lab3_Task1a_H_

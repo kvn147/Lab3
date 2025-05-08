@@ -16,16 +16,14 @@
 
 uint32_t ADC_value;
 
-void extern_switch_init(void)  
-{ 
-     volatile unsigned short delay = 0; 
-     RCGCGPIO |= 0x0400;
-     delay++; 
-     delay++; 
-     GPIOAMSEL_L &= ~0x03;
-     GPIOAFSEL_L &= ~0x03;
-     GPIODIR_L &= ~0x03;
-     GPIODEN_L |= 0x03;
+void initButtons() {
+  volatile unsigned short delay = 0;
+  RCGCGPIO |= 0x0100; 
+  delay++;
+  delay++;
+  GPIODIR_J = 0x00;
+  GPIODEN_J = 0x03;
+  GPIOPUR_J = 0x03;
 }
 
 
@@ -36,18 +34,18 @@ int main(void) {
   LED_Init();            // Initialize the 4 onboard LEDs (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
-  extern_switch_init();  // Init buttons L
+  initButtons();  // Init buttons L
   float temp;
   while(1) {
     GPTMICR = 0x1; // Clear any timeout flag
-    temp =  147.5 - ((75 * (0.0f - 4095.0f) * ADC_value) / 4096);
+    temp =  147.5f - ((75.0f * (0.0f - 4095.0f) * ADC_value) / 4096.0f);
     printf("Current temp: %f\n", temp);
 
-    if(GPIODATA_L & 0x1) {
+    if(!(GPIODATA_J & 0x1)) {
       PLL_Init(PRESET3);  // set freq to 12
     }
 
-    if(GPIODATA_L & 0x2) {
+    if(!(GPIODATA_J & 0x2)) {
       PLL_Init(PRESET1); // set freq to 120
     }
   }
