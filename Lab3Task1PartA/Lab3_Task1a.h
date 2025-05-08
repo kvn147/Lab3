@@ -61,5 +61,8 @@
 #define ADC0_SSCTL3 (*((volatile uint32_t *)0x400380A4))
 #define ADC0_SSFIFO3 (*((volatile uint32_t *)0x400380A8))
 #define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
+#define ADC0_SSTSH3 (*((volatile uint32_t *)0x400380BC))
+
+
 
 #endif // _Lab3_Task1a_H_

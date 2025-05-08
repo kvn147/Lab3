@@ -16,6 +16,19 @@
 
 uint32_t ADC_value;
 
+void extern_switch_init(void)  
+{ 
+     volatile unsigned short delay = 0; 
+     RCGCGPIO |= 0x0400;
+     delay++; 
+     delay++; 
+     GPIOAMSEL_L &= ~0x03;
+     GPIOAFSEL_L &= ~0x03;
+     GPIODIR_L &= ~0x03;
+     GPIODEN_L |= 0x03;
+}
+
+
 int main(void) {
   // Select system clock frequency preset
   enum frequency freq = PRESET2; // 60 MHz
@@ -23,27 +36,19 @@ int main(void) {
   LED_Init();            // Initialize the 4 onboard LEDs (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
-  float resistance;
+  extern_switch_init();  // Init buttons L
+  float temp;
   while(1) {
-      GPTMICR = 0x1; // Clear any timeout flag
-    // STEP 5: Change the pattern of LEDs based on the resistance.
-    // 5.1: Convert ADC_value to resistance in kilo-ohm
-    resistance = ADC_value / 4095.0 * 10.0; // Convert ADC value to voltage
-    
-    // clear LEDs
-    GPIODATA_N &= ~0x03; // Turn off LED1 and LED2
-    GPIODATA_F &= ~0x11; // Turn off LED3 and LED4
-    // 5.2: Change the pattern of LEDs based on the resistance
-    if (resistance < 2.5) {
-      GPIODATA_N |= 0x02; // LED1 on (PN1)
-    } else if (resistance < 5.0) {
-      GPIODATA_N |= 0x03; // LED2 and LED1 on (PN0 and PN1)
-    } else if (resistance < 7.5) {
-      GPIODATA_F |= 0x10; // LED3 on (PF4)
-      GPIODATA_N |= 0x03; // LED2 and LED1 on (PN0 and PN1)
-    } else {
-      GPIODATA_F |= 0x11; // LED4 and LED3 on (PF0 and PF4)
-      GPIODATA_N |= 0x03; // LED2 and LED1 on (PN0 and PN1)
+    GPTMICR = 0x1; // Clear any timeout flag
+    temp =  147.5 - ((75 * (0.0f - 4095.0f) * ADC_value) / 4096);
+    printf("Current temp: %f\n", temp);
+
+    if(GPIODATA_L & 0x1) {
+      PLL_Init(PRESET3);  // set freq to 12
+    }
+
+    if(GPIODATA_L & 0x2) {
+      PLL_Init(PRESET1); // set freq to 120
     }
   }
   return 0;
