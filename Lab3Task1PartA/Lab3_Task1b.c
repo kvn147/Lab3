@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "Lab3_Inits.h"
+#include "Lab3_Initsb.h"
 
 // STEP 0b: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -38,7 +38,7 @@ int main(void) {
   float temp;
   while(1) {
     GPTMICR = 0x1; // Clear any timeout flag
-    temp =  147.5f - ((75.0f * (0.0f - 4095.0f) * ADC_value) / 4096.0f);
+    temp =  147.5f - ((75.0f * (1066271200.0f - 1076101120.0f) * ADC_value) / 4096.0f);
     printf("Current temp: %f\n", temp);
 
     if(!(GPIODATA_J & 0x1)) {
