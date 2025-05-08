@@ -102,13 +102,15 @@ void ADCReadPot_Init(void) {
   // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
   ADC0_SSMUX3 = 0x0;
   // 2.14: Configure ADCSSCTL3 register
-  ADC0_SSCTL3 = 0x4; // sample 0 and 1, end of sequence, no interrupts
+  ADC0_SSCTL3 = 0xC; // sample 0 and 1, end of sequence, no interrupts and bit 4 is used for temp
   // 2.15: Set the SS3 interrupt mask
   ADC0_IM |= 0x8; // Enable SS3 interrupt (bit 3)
   // 2.16: Set the corresponding bit for ADC0 SS3 in NVIC
   NVIC_EN0 |= (1 << 17); // Enable ADC0 SS3 interrupt in NVIC (bit 17)
+  ADC0_SSTSH3  = 0x4; // Set sample hold width to be 16 for temp
   // 2.17: Enable ADC0 SS3
   ADC0_ACTSS |= 0x8; // Enable SS3
+
 }
 
 void TimerADCTriger_Init(void) {
