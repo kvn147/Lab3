@@ -41,11 +41,11 @@ int main(void) {
     temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
     printf("Current temp: %f\n", temp);
 
-    if(!(GPIODATA_J & 0x1)) {
+    if(!(GPIODATA_J & 0x1)) { //SW1
       PLL_Init(PRESET3);  // set freq to 12
     }
 
-    if(!(GPIODATA_J & 0x2)) {
+    if(!(GPIODATA_J & 0x2)) { // SW2
       PLL_Init(PRESET1); // set freq to 120
     }
   }
