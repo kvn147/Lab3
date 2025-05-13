@@ -84,4 +84,27 @@
 #define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
 #define ADC0_SSTSH3 (*((volatile uint32_t *)0x400380BC))
 
+// UART Register setup for UART0
+#define UART0_CTL (*((volatile uint32_t *)0x4000C030))  // UARTCTL reg
+
+// UART GPIO A ports
+#define GPIOAFSEL_A (*((volatile uint32_t *)0x40058420))
+#define GPIOPCTL_A  (*((volatile uint32_t *)0x4005852C))
+#define GPIODEN_A  (*((volatile uint32_t *)0x4005851C))
+#define RCGCUART_A  (*((volatile uint32_t *)0x400FE618))  // RCGCUART
+#define GPIODR2R_A  (*((volatile uint32_t *)0x40058500))  // Drive Select
+#define UARTIBRD_A  (*((volatile uint32_t *)0x4000C02C))  // Drive Select
+#define UARTFBRD_A  (*((volatile uint32_t *)0x4000C028))  // Drive Select
+#define UARTLCRH_A  (*((volatile uint32_t *)0x4000C02C))
+#define UARTCC_A    (*((volatile uint32_t *)0x4000CFC8))  // UART clock config
+#define UARTDR_A    (*((volatile uint32_t *)0x4000C000))  // UART data
+
+
+
+
+
+
+
+
+
 #endif // _Lab3_Task1a_H_
