@@ -137,6 +137,8 @@ void UART_Init(void) {
   RCGCUART_A |= 0x1;  // Enable UART module 0
   RCGCGPIO |= 0x1;    // Enable clock for A ports
   GPIOAFSEL_A |= 0x3; // Alternate port for pins 0 and 1
+  GPIOPCTL_A |= 0x11; // Set pins 0 and 1 to UART mode
+  GPIODEN_A |= 0x3;   // Enable digital for pins 0 and 1
   UART0_CTL |= 0x180;       // Enable bit 8 for TXE for enabling transmitting
   // and bit 9 for recieving
 
