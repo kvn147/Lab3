@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-int main()
-{
-  return 0;
-}
-=======
 /**
  * EE/CSE 474: Lab3 Task1a main function
  */
@@ -71,4 +64,3 @@ void ADC0SS3_Handler(void) {
   // 4.2: Save the ADC value to global variable ADC_value
   ADC_value = ADC0_SSFIFO3;
 }
->>>>>>> ff61c63 (moved files required from Task 1 to Task 2)
