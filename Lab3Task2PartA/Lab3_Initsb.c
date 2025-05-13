@@ -134,5 +134,22 @@ void TimerADCTriger_Init(void) {
 }
 
 void UART_Init(void) {
-  printf("test");
+  RCGCUART_A |= 0x1;  // Enable UART module 0
+  RCGCGPIO |= 0x1;    // Enable clock for A ports
+  GPIOAFSEL_A |= 0x3; // Alternate port for pins 0 and 1
+  UART0_CTL |= 0x180;       // Enable bit 8 for TXE for enabling transmitting
+  // and bit 9 for recieving
+
+  UART0_CTL &= ~0x1;        // Disable UART
+  UARTIBRD_A = 0x0000;      // Write to Integer Baud Rate Divisor
+  GPIOPCTL_A |= (1 << 4);   // Turn on port MUX control for port mux control 1
+  UARTIBRD_A = 130;          // remainder
+  UARTFBRD_A = 13;         // fractional portion
+  UARTLCRH_A = 0x10;        // Word length of 5 bits 
+  UARTCC_A = 0x0;          // Use system clock
+  UART0_CTL |= 0x1;         // Enable port UART
+  int delay;
+  delay++;
+  delay++;
+  delay++;  // 3 clock cycles of delay before accessing UART data
 }

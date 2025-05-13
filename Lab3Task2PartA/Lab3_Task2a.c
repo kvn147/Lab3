@@ -46,6 +46,7 @@ int main(void) {
 
   float temp;
   while(1) {
+    UARTDR_A |= 0x1; 
     GPTMICR = 0x1; // Clear any timeout flag
     temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
     printf("%f\n", temp);
