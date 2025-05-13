@@ -37,15 +37,9 @@ int main(void) {
   initButtons();  // Init buttons L
   UART_Init();
 
-  float temp;
   while(1) {
-    if(UARTFR_A & 0x80) {
-      UARTDR_A = 0x30; 
-    }
-    GPTMICR = 0x1; // Clear any timeout flag
-    temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
-    printf("%f\n", temp);
 
+    GPTMICR = 0x1; // Clear any timeout flag
     if(!(GPIODATA_J & 0x1)) { //SW1
       PLL_Init(PRESET3);  // set freq to 12
     }
@@ -63,4 +57,16 @@ void ADC0SS3_Handler(void) {
   ADC0_ISC |= 0x1;
   // 4.2: Save the ADC value to global variable ADC_value
   ADC_value = ADC0_SSFIFO3;
+
+  char tempBuffer[100];
+  float temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
+  
+  snprintf(tempBuffer, sizeof(tempBuffer), "temp: %f\r\n", temp);
+  int TxIndex = 0;
+  while(TxIndex < 100 && tempBuffer[TxIndex] != '\0') {
+    if(UARTFR_A & 0x80) {
+      UARTDR_A = tempBuffer[TxIndex];
+      TxIndex++;
+    }
+  }
 }
