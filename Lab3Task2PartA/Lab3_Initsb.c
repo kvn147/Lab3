@@ -141,8 +141,6 @@ void UART_Init(void) {
   // and bit 9 for recieving
 
   UART0_CTL &= ~0x1;        // Disable UART
-  UARTIBRD_A = 0x0000;      // Write to Integer Baud Rate Divisor
-  GPIOPCTL_A |= (1 << 4);   // Turn on port MUX control for port mux control 1
   UARTIBRD_A = 130;          // remainder
   UARTFBRD_A = 13;         // fractional portion
   UARTLCRH_A = 0x10;        // Word length of 5 bits 
