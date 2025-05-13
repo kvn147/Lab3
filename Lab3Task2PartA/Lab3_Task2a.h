@@ -68,4 +68,20 @@
 #define GPIODEN_J (*((volatile uint32_t *)0x4006051C))
 #define GPIODATA_J (*((volatile uint32_t *)0x4006000C))
 
+// ADC registers
+#define ADCCC (*((volatile uint32_t *)0x40038FC8)) // ADC Clock configuration
+#define RCGCADC (*((volatile uint32_t *)0x400FE638)) // ADC clock control
+
+// ADC0 registers
+#define ADC0_EMUX (*((volatile uint32_t *)0x40038014)) // Event multiplexer
+#define ADC0_ACTSS (*((volatile uint32_t *)0x40038000)) // sample sequencer 3
+#define ADC0_IM (*((volatile uint32_t *)0x40038008)) // Interrupt mask
+
+// ADC0 sample sequencer 3 registers
+#define ADC0_SSMUX3 (*((volatile uint32_t *)0x400380A0))
+#define ADC0_SSCTL3 (*((volatile uint32_t *)0x400380A4))
+#define ADC0_SSFIFO3 (*((volatile uint32_t *)0x400380A8))
+#define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
+#define ADC0_SSTSH3 (*((volatile uint32_t *)0x400380BC))
+
 #endif // _Lab3_Task1a_H_
