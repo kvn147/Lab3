@@ -42,6 +42,8 @@ int main(void) {
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
   initButtons();  // Init buttons L
+  UART_Init();
+
   float temp;
   while(1) {
     GPTMICR = 0x1; // Clear any timeout flag

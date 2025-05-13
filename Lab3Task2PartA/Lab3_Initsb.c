@@ -3,7 +3,7 @@
  */
 
 #include "PLL_Header.h"
-#include "Lab3_Inits.h"
+#include "Lab3_Initsb.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -133,4 +133,6 @@ void TimerADCTriger_Init(void) {
   GPTMADCEV |= 0x1; 
 }
 
-// NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
+void UART_Init(void) {
+  printf("test");
+}
