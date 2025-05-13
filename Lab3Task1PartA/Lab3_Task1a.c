@@ -30,7 +30,6 @@ int main(void) {
     // STEP 5: Change the pattern of LEDs based on the resistance.
     // 5.1: Convert ADC_value to resistance in kilo-ohm
     resistance = ADC_value / 4095.0 * 10.0; // Convert ADC value to voltage
-   printf("ADC val: %i\n", resistance);
     // clear LEDs
     GPIODATA_N &= ~0x03; // Turn off LED1 and LED2
     GPIODATA_F &= ~0x11; // Turn off LED3 and LED4

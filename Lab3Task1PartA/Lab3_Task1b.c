@@ -39,7 +39,7 @@ int main(void) {
   while(1) {
     GPTMICR = 0x1; // Clear any timeout flag
     temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
-    printf("Current temp: %f\n", temp);
+    printf("%f\n", temp);
 
     if(!(GPIODATA_J & 0x1)) { //SW1
       PLL_Init(PRESET3);  // set freq to 12
