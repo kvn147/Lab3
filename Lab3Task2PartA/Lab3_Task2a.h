@@ -98,6 +98,7 @@
 #define UARTLCRH_A  (*((volatile uint32_t *)0x4000C02C))
 #define UARTCC_A    (*((volatile uint32_t *)0x4000CFC8))  // UART clock config
 #define UARTDR_A    (*((volatile uint32_t *)0x4000C000))  // UART data
+#define UARTFR_A    (*((volatile uint32_t *)0x4000C018))  // UART data transmit flags
 
 
 
