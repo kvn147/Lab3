@@ -4,6 +4,7 @@
       "pll_header.h": "c",
       "lab3_task1a.h": "c",
       "stdio.h": "c",
-      "lab3_task1b.h": "c"
+      "lab3_task1b.h": "c",
+      "lab3_initsb.h": "c"
     }
 }
