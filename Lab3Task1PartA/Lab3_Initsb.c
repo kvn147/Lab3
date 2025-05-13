@@ -3,11 +3,10 @@
  */
 
 #include "PLL_Header.h"
-#include "Lab3_Inits.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
-#include "Lab3_Task1a.h"
+#include "Lab3_Task1b.h"
 
 int PLL_Init(enum frequency freq) {
     // Do NOT modify this function.
