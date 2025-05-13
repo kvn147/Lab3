@@ -90,10 +90,10 @@
 // UART GPIO A ports
 #define GPIOAFSEL_A (*((volatile uint32_t *)0x40058420))
 #define GPIOPCTL_A  (*((volatile uint32_t *)0x4005852C))
-#define GPIODEN_A  (*((volatile uint32_t *)0x4005851C))
+#define GPIODEN_A   (*((volatile uint32_t *)0x4005851C))
 #define RCGCUART_A  (*((volatile uint32_t *)0x400FE618))  // RCGCUART
 #define GPIODR2R_A  (*((volatile uint32_t *)0x40058500))  // Drive Select
-#define UARTIBRD_A  (*((volatile uint32_t *)0x4000C02C))  // Drive Select
+#define UARTIBRD_A  (*((volatile uint32_t *)0x4000C024))  // Drive Select
 #define UARTFBRD_A  (*((volatile uint32_t *)0x4000C028))  // Drive Select
 #define UARTLCRH_A  (*((volatile uint32_t *)0x4000C02C))
 #define UARTCC_A    (*((volatile uint32_t *)0x4000CFC8))  // UART clock config

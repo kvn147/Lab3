@@ -143,10 +143,10 @@ void UART_Init(void) {
   // and bit 9 for recieving
 
   UART0_CTL &= ~0x1;        // Disable UART
-  UARTIBRD_A = 130;          // remainder
-  UARTFBRD_A = 13;         // fractional portion
-  UARTLCRH_A = 0x10;        // Word length of 5 bits 
-  UARTCC_A = 0x0;          // Use system clock
+  UARTIBRD_A = 104;          // remainder
+  UARTFBRD_A = 11;         // fractional portion
+  UARTLCRH_A = 0x70;        // Word length of 8 bits
+  UARTCC_A = 0x5;          // Use system clock
   UART0_CTL |= 0x1;         // Enable port UART
   int delay;
   delay++;
