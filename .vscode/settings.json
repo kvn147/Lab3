@@ -5,6 +5,8 @@
       "lab3_task1a.h": "c",
       "stdio.h": "c",
       "lab3_task1b.h": "c",
-      "lab3_initsb.h": "c"
+      "lab3_initsb.h": "c",
+      "lab3_task2b.h": "c",
+      "lab3_task2a.h": "c"
     }
 }
