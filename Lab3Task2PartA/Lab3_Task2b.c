@@ -11,17 +11,14 @@ void UART2_Init(void);
 int main(void) {
     UART_Init();
     UART2_Init(); // Initialize UART2
-
+    UARTDR_A = '9';
     while (1) {
-      // while (!(UART2_FR_R & UART_FR_RXFE)) {
-        // char c = (char)(UART2_DR_R & 0xFF); // Read the character from UART2
-        // printf("%c\n", c);
-        if(UARTFR_A & 0x80) {
-          UARTDR_A = 'c';
-        }
-        // while (UART2_FR_R & UART_FR_TXFF) {}
-        // UART2_DR_R = 'c'; // Echo character to UART2
-      // }
+      while (!(UARTFR_A & UART_FR_RXFE)) {
+        char c = (char)(UARTDR_A & 0xFF); // Read the character from UART2
+        printf("%c\n", c);
+        while (UART2_FR_R & UART_FR_TXFF) {}
+        UART2_DR_R = c; // Echo character to UART2
+      }
     }
     return 0;
 }
