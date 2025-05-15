@@ -5,6 +5,7 @@
  */
 #ifndef _LAB3_TASK2B_H_
 #define _LAB3_TASK2B_H_
+#include "Lab3_Task2a.h"
 #include <stdint.h>
 
 // Peripheral enable

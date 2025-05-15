@@ -2,7 +2,8 @@
 /*
  * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai
  * 
- * Header file for Lab 3 Task 1a. Defines GPIO registers
+ * Main file for Lab 3 Task 2a. Initializes buttons, timers, ADC, and UART.
+ * Toggle clock speeds by buttons and reads temperature from ADC and sends it over UART.
  */
 
 #include <stdint.h>

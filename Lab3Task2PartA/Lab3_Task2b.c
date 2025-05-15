@@ -1,7 +1,8 @@
 /*
  * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai
  * 
- * Header file for Lab 3 Task 1a. Defines GPIO registers
+ * Main file for Lab 3 Task 2b. Initializes UART2 and implements an echo
+ * return to sender by reading from UART2 and writing back to it. 
  */
 
 #include "Lab3_Task2b.h"
