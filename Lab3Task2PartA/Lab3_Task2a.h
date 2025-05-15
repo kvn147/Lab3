@@ -4,8 +4,8 @@
  * Header file for Lab 3 Task 2a. Defines GPIO registers, ADC registers,
  * and UART registers.
  */
-#ifndef _Lab3_Task1a_H_
-#define _Lab3_Task1a_H_
+#ifndef _LAB3_TASK2A_H_
+#define _LAB3_TASK2A_H_
 
 #include <stdint.h>
 
@@ -109,10 +109,4 @@
 #define UART_CTL_RXE     0x00000004 // Receive Enable
 #define UART_LCRH_WLEN_8 0x00000060 // 8-bit word length
 
-
-
-
-
-
-
-#endif // _Lab3_Task1a_H_
+#endif // _LAB3_TASK2A_H_

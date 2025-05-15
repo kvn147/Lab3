@@ -3,8 +3,8 @@
  * Header file for Lab 3 Task 1a. Defines GPIO registers
  * such as onboard LEDs, ADC, and Timer.
  */
-#ifndef _Lab3_Task1a_H_
-#define _Lab3_Task1a_H_
+#ifndef _LAB3_TASK1A_H_
+#define _LAB3_TASK1A_H_
 
 #include <stdint.h>
 
@@ -62,4 +62,4 @@
 #define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
 #define ADC0_SSTSH3 (*((volatile uint32_t *)0x400380BC))
 
-#endif // _Lab3_Task1a_H_
+#endif // _LAB3_TASK1A_H_

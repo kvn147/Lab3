@@ -3,8 +3,8 @@
  * Header file for Lab 3 Task 1b. Defines GPIO registers
  * such as ADC, user switches, and timer.
  */
-#ifndef _Lab3_Task1a_H_
-#define _Lab3_Task1a_H_
+#ifndef _LAB3_TASK1B_H_
+#define _LAB3_TASK1B_H_
 
 #include <stdint.h>
 
@@ -67,4 +67,4 @@
 #define GPIODEN_J (*((volatile uint32_t *)0x4006051C))
 #define GPIODATA_J (*((volatile uint32_t *)0x4006000C))
 
-#endif // _Lab3_Task1a_H_
+#endif // _LAB3_TASK1B_H_
