@@ -6,8 +6,6 @@
 #ifndef _LAB3_TASK2B_H_
 #define _LAB3_TASK2B_H_
 #include <stdint.h>
-#include "PLL_Header.h"
-#include "Lab3Task2_Inits.h"
 
 // Peripheral enable
 #define RCGCGPIO_R  (*((volatile uint32_t *)0x400FE608)) // GPIO peripheral clock control
