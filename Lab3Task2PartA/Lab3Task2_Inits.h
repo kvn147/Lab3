@@ -6,8 +6,8 @@
 // this header file, and thus you should not modify it for task 1a.
 // However, you may modify it if you want to reuse it for other tasks.
 
-#ifndef _LAB3TASK2_INITSB_H_
-#define _LAB3TASK2_INITSB_H_
+#ifndef _LAB3TASK2_INITS_H_
+#define _LAB3TASK2_INITS_H_
 
 // Preset frequency for 120 MHZ, 60 MHZ, and 12 MHZ clock
 // Pass in the preset to Timer1_Init and PLL_Init to configure
@@ -33,4 +33,4 @@ void TimerADCTriger_Init(void);
 // Initalize and configure UART 0
 void UART_Init(void);
 
-#endif  // _LAB3TASK2_INITSB_H_
+#endif  // _LAB3TASK2_INITS_H_

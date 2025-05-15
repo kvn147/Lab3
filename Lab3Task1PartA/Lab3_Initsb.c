@@ -72,7 +72,7 @@ void LED_Init(void) {
   GPIODEN_N |= 0x03;  // Enable digital for PN0 and PN1
 }
 
-void ADCReadPot_Init(void) {
+void ADCReadTemp_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
   RCGCADC |= 0x1; // Enable ADC0 clock

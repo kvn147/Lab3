@@ -19,6 +19,40 @@
 
 uint32_t ADC_value;
 
+// Initialize and configure the buttons for SW 1 and SW 2
+void initButtons();
+
+// Get the status of whether SW1 is pressed or not
+unsigned long Get_SW1();
+
+// Get the status of whether SWw is pressed or not
+unsigned long Get_SW2();
+
+int main(void) {
+  // Select system clock frequency preset
+  enum frequency freq = PRESET2; // 60 MHz
+  PLL_Init(freq);        // Set system clock frequency to 60 MHz
+  LED_Init();            // Initialize the 4 onboard LEDs (GPIO)
+  ADCReadTemp_Init();     // Initialize ADC0 to read temperature
+  TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
+  initButtons();  // Init buttons L
+  float temp;
+  while(1) {
+    GPTMICR = 0x1; // Clear any timeout flag
+    temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
+    printf("%f\n", temp);
+
+    if(Get_SW1()) { //SW1
+      PLL_Init(PRESET3);  // set freq to 12
+    }
+
+    if(Get_SW2()) { // SW2
+      PLL_Init(PRESET1); // set freq to 120
+    }
+  }
+  return 0;
+}
+
 void initButtons() {
   volatile unsigned short delay = 0;
   RCGCGPIO |= 0x0100; 
@@ -29,30 +63,12 @@ void initButtons() {
   GPIOPUR_J = 0x03;
 }
 
+unsigned long Get_SW1() {
+  return !(GPIODATA_J & 0x1);
+}
 
-int main(void) {
-  // Select system clock frequency preset
-  enum frequency freq = PRESET2; // 60 MHz
-  PLL_Init(freq);        // Set system clock frequency to 60 MHz
-  LED_Init();            // Initialize the 4 onboard LEDs (GPIO)
-  ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
-  TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
-  initButtons();  // Init buttons L
-  float temp;
-  while(1) {
-    GPTMICR = 0x1; // Clear any timeout flag
-    temp =  147.5f - ((247.5 * ADC_value) / 4096.0f);
-    printf("%f\n", temp);
-
-    if(!(GPIODATA_J & 0x1)) { //SW1
-      PLL_Init(PRESET3);  // set freq to 12
-    }
-
-    if(!(GPIODATA_J & 0x2)) { // SW2
-      PLL_Init(PRESET1); // set freq to 120
-    }
-  }
-  return 0;
+unsigned long Get_SW2() {
+  return !(GPIODATA_J & 0x2);
 }
 
 void ADC0SS3_Handler(void) {
