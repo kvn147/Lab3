@@ -32,7 +32,6 @@ int main(void) {
   // Select system clock frequency preset
   enum frequency freq = PRESET2; // 60 MHz
   PLL_Init(freq);        // Set system clock frequency to 60 MHz
-  LED_Init();            // Initialize the 4 onboard LEDs (GPIO)
   ADCReadTemp_Init();     // Initialize ADC0 to read temperature
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
   initButtons();  // Init buttons L
