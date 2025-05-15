@@ -1,7 +1,7 @@
 /*
- * Copyright @ 2025 Kevin Nguyen and Patrick Rung
- * 
- * Header file for Lab 3 Task 1a. Defines GPIO registers
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rung.
+ * Header file for Lab 3 Task 1b. Defines GPIO registers
+ * such as ADC, user switches, and timer.
  */
 #ifndef _Lab3_Task1a_H_
 #define _Lab3_Task1a_H_
@@ -35,7 +35,6 @@
 #define GPTMIMR (*((volatile uint32_t *)0x40030018)) // Interupt mask
 #define GPTMCC  (*((volatile uint32_t *)0x40030FC8)) // 
 #define GPTMADCEV (*((volatile uint32_t *)0x40030070)) 
-
 
 #define NVIC_EN0 (*((volatile uint32_t *)0xE000E100)) // Enable interrupt in NVIC
 

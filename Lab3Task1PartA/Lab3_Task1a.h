@@ -1,7 +1,7 @@
 /*
- * Copyright @ 2025 Kevin Nguyen and Patrick Rung
- * 
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rung.
  * Header file for Lab 3 Task 1a. Defines GPIO registers
+ * such as onboard LEDs, ADC, and Timer.
  */
 #ifndef _Lab3_Task1a_H_
 #define _Lab3_Task1a_H_
@@ -36,7 +36,6 @@
 #define GPTMCC  (*((volatile uint32_t *)0x40030FC8)) // 
 #define GPTMADCEV (*((volatile uint32_t *)0x40030070)) 
 
-
 #define NVIC_EN0 (*((volatile uint32_t *)0xE000E100)) // Enable interrupt in NVIC
 
 // Port E registers (for AIN0 pin wired to potentiometer)
@@ -62,7 +61,5 @@
 #define ADC0_SSFIFO3 (*((volatile uint32_t *)0x400380A8))
 #define ADC0_ISC (*((volatile uint32_t *)0x4003800C))
 #define ADC0_SSTSH3 (*((volatile uint32_t *)0x400380BC))
-
-
 
 #endif // _Lab3_Task1a_H_

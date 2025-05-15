@@ -1,5 +1,8 @@
 /**
- * EE/CSE 474: Lab3 Task1a main function
+ * Copyright @2025 Kevin Nguyen and Patrick Rung.
+ * EE/CSE 474: Lab3 Task1a main function. Samples the ADC value
+ * from the potentiometer and uses if-else conditions to turn on
+ * corresponding LEDs.
  */
 
 // NOTE: This is the main function for Task 1a. You should start by
@@ -26,7 +29,7 @@ int main(void) {
   float resistance;
   while(1) {
 
-      GPTMICR = 0x1; // Clear any timeout flag
+    GPTMICR = 0x1; // Clear any timeout flag
     // STEP 5: Change the pattern of LEDs based on the resistance.
     // 5.1: Convert ADC_value to resistance in kilo-ohm
     resistance = ADC_value / 4095.0 * 10.0; // Convert ADC value to voltage
