@@ -1,5 +1,5 @@
 /*
- * Copyright @ 2025 Kevin Nguyen and Patrick Rung.
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai.
  * Header file for Lab 3 Task 1a. Defines GPIO registers
  * such as onboard LEDs, ADC, and Timer.
  */

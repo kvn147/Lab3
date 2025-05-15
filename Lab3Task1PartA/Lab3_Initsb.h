@@ -1,5 +1,5 @@
 /**
- * Copyright @2025 Kevin Nguyen and Patrick Rung.
+ * Copyright @2025 Kevin Nguyen and Patrick Rungruengwatanachai.
  * EE/CSE 474: Lab3 drivers header file
  */
 

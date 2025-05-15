@@ -1,6 +1,6 @@
 /**
- * Copyright @2025 Kevin Nguyen and Patrick Rung.
- * EE/CSE 474: Lab3 Task1a main function. Samples the ADC value
+ * Copyright @2025 Kevin Nguyen and Patrick Rungruengwatanachai.
+ * EE/CSE 474: Lab 3 Task 1a main file. Samples the ADC value
  * from the potentiometer and uses if-else conditions to turn on
  * corresponding LEDs.
  */

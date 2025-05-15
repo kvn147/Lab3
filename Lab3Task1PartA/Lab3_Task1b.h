@@ -1,5 +1,5 @@
 /*
- * Copyright @ 2025 Kevin Nguyen and Patrick Rung.
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai.
  * Header file for Lab 3 Task 1b. Defines GPIO registers
  * such as ADC, user switches, and timer.
  */

@@ -1,6 +1,8 @@
 /*
- * Copyright @2025 Kevin Nguyen and Patrick Rung.
- * EE/CSE 474: Lab3 Task1a main function
+ * Copyright @2025 Kevin Nguyen and Patrick Rungruengwatanachai.
+ * EE/CSE 474: Lab 3 Task 1b main function. Initializes
+ * buttons, timers, ADC, and ISR. Toggles clock speeds by buttons
+ * and reads temperature from ADC and prints it to terminal I/O.
  */
 
 // NOTE: This is the main function for Task 1a. You should start by

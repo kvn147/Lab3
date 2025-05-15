@@ -1,7 +1,8 @@
 /*
  * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai
  * 
- * Header file for Lab 3 Task 1a. Defines GPIO registers
+ * Header file for Lab 3 Task 2a. Defines GPIO registers, ADC registers,
+ * and UART registers.
  */
 #ifndef _Lab3_Task1a_H_
 #define _Lab3_Task1a_H_
