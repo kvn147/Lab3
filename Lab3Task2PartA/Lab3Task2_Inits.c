@@ -3,7 +3,7 @@
  */
 
 #include "PLL_Header.h"
-#include "Lab3_Initsb.h"
+#include "Lab3Task2_Inits.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -71,7 +71,7 @@ void LED_Init(void) {
   GPIODEN_N |= 0x03;  // Enable digital for PN0 and PN1
 }
 
-void ADCReadPot_Init(void) {
+void ADCReadTemp_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
   RCGCADC |= 0x1; // Enable ADC0 clock
@@ -134,12 +134,12 @@ void TimerADCTriger_Init(void) {
 }
 
 void UART_Init(void) {
-  RCGCUART_A |= 0x1;  // Enable UART module 0
-  RCGCGPIO |= 0x1;    // Enable clock for A ports
-  GPIOAFSEL_A |= 0x3; // Alternate port for pins 0 and 1
-  GPIOPCTL_A |= 0x11; // Set pins 0 and 1 to UART mode
-  GPIODEN_A |= 0x3;   // Enable digital for pins 0 and 1
-  UART0_CTL |= 0x180;       // Enable bit 8 for TXE for enabling transmitting
+  RCGCUART_A |= (1 << 0);  // Enable UART module 0
+  RCGCGPIO |= (1 << 0);    // Enable clock for A ports
+  GPIOAFSEL_A |= (1 << 0) | (1 << 1); // Alternate port for pins 0 and 1
+  GPIOPCTL_A |= (1 << 0) | (1 << 4); // Set pins 0 and 1 to UART mode
+  GPIODEN_A |= (1 << 0) | (1 << 1);   // Enable digital for pins 0 and 1
+  UART0_CTL |= (UART_CTL_UARTEN | UART_CTL_TXE | UART_CTL_RXE);       // Enable bit 8 for TXE for enabling transmitting
   // and bit 9 for recieving
 
   UART0_CTL &= ~0x1;        // Disable UART

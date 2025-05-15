@@ -1,23 +1,26 @@
 /*
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai
  * 
- *
- * 
+ * Header file for Lab 3 Task 1a. Defines GPIO registers
  */
+
 #include "Lab3_Task2b.h"
 #include "Lab3_Task2a.h"
 #include <stdio.h>
+
+// Initialize UART2 for both receiving and transmitting
 void UART2_Init(void);
+
+// Functionality for implementing the return to sender function
+// which takes in input from the UART and transmits it back over UART
+// bluetooth
+void Retun_To_Sender();
 
 int main(void) {
     UART2_Init(); // Initialize UART2
     UARTDR_A = '9';
     while (1) {
-      while (!(UARTFR_A & UART_FR_RXFE)) {
-        char c = (char)(UARTDR_A & 0xFF); // Read the character from UART2
-        printf("%c\n", c);
-        while (UART2_FR_R & UART_FR_TXFF) {}
-        UART2_DR_R = c; // Echo character to UART2
-      }
+      Retun_To_Sender();
     }
     return 0;
 }
@@ -43,4 +46,13 @@ void UART2_Init(void) {
     UART2_LCRH_R = 0x70; // Set line control register (8 data bits, no parity, 1 stop bit)
     UART2_CC_R = 0x5; // Use system clock
     UART2_CTL_R |= (UART_CTL_UARTEN | UART_CTL_TXE | UART_CTL_RXE); // Enable UART2, TXE, RXE
+}
+
+void Retun_To_Sender() {
+  while (!(UARTFR_A & UART_FR_RXFE)) {
+    char c = (char)(UARTDR_A & 0xFF); // Read the character from UART2
+    printf("%c\n", c);
+    while (UART2_FR_R & UART_FR_TXFF) {}
+    UART2_DR_R = c; // Echo character to UART2
+  }
 }

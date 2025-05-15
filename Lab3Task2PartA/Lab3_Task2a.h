@@ -1,5 +1,5 @@
 /*
- * Copyright @ 2025 Kevin Nguyen and Patrick Rung
+ * Copyright @ 2025 Kevin Nguyen and Patrick Rungruengwatanachai
  * 
  * Header file for Lab 3 Task 1a. Defines GPIO registers
  */
@@ -100,7 +100,13 @@
 #define UARTDR_A    (*((volatile uint32_t *)0x4000C000))  // UART data
 #define UARTFR_A    (*((volatile uint32_t *)0x4000C018))  // UART data transmit flags
 
-
+// UART Flags and Control
+#define UART_FR_RXFE     0x00000010 // Receive FIFO Empty
+#define UART_FR_TXFF     0x00000020 // Transmit FIFO Full
+#define UART_CTL_UARTEN  0x00000001 // UART Enable
+#define UART_CTL_TXE     0x00000100 // Transmit Enable
+#define UART_CTL_RXE     0x00000004 // Receive Enable
+#define UART_LCRH_WLEN_8 0x00000060 // 8-bit word length
 
 
 
