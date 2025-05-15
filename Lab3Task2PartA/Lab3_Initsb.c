@@ -148,7 +148,7 @@ void UART_Init(void) {
   UARTLCRH_A = 0x70;        // Word length of 8 bits
   UARTCC_A = 0x5;          // Use system clock
   UART0_CTL |= 0x1;         // Enable port UART
-  int delay;
+  volatile unsigned short delay = 0;
   delay++;
   delay++;
   delay++;  // 3 clock cycles of delay before accessing UART data
